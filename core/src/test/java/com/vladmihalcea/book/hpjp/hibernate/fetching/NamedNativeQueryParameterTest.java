@@ -51,11 +51,13 @@ public class NamedNativeQueryParameterTest extends AbstractTest {
     @Entity(name = "Post")
     @Table(name = "post")
     @NamedNativeQuery(
-            name = "findPostCommentsByPostTitle",
-            query = "select c.* " +
-                    "from post_comment c " +
-                    "where c.id > :id ",
-            resultClass = PostComment.class
+        name = "findPostCommentsByPostTitle",
+        query = """
+            select c.*
+            from post_comment c
+            where c.id > :id
+        """,
+        resultClass = PostComment.class
     )
     public static class Post {
 
